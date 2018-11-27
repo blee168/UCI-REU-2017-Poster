@@ -1,0 +1,255 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% baposter Landscape Poster
+% LaTeX Template
+% Version 1.0 (11/06/13)
+%
+% baposter Class Created by:
+% Brian Amberg (baposter@brian-amberg.de)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[landscape,a0paper,fontscale=0.285]{baposter} % Adjust the font scale/size here
+
+\usepackage{graphicx} % Required for including images
+\graphicspath{{figures/}} % Directory in which figures are stored
+
+\usepackage{amsmath} % For typesetting math
+\usepackage{amssymb} % Adds new symbols to be used in math mode
+
+\usepackage{booktabs} % Top and bottom rules for tables
+\usepackage{enumitem} % Used to reduce itemize/enumerate spacing
+\usepackage{sans} % Use the Palatino font
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+
+\usepackage{multicol} % Required for multiple columns
+\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
+
+\usepackage{tikz} % Required for flow chart
+\usetikzlibrary{shapes,arrows} % Tikz libraries required for the flow chart in the template
+
+\newcommand{\compresslist}{ % Define a command to reduce spacing within itemize/enumerate environments, this is used right after \begin{itemize} or \begin{enumerate}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+}
+
+\definecolor{lightblue}{rgb}{0.145,0.6666,1} % Defines the color used for content box headers
+
+\begin{document}
+
+\begin{poster}
+{
+headerborder=closed, % Adds a border around the header of content boxes
+colspacing=1em, % Column spacing
+bgColorOne=white, % Background color for the gradient on the left side of the poster
+bgColorTwo=white, % Background color for the gradient on the right side of the poster
+borderColor=lightblue, % Border color
+headerColorOne=black, % Background color for the header in the content boxes (left side)
+headerColorTwo=lightblue, % Background color for the header in the content boxes (right side)
+headerFontColor=white, % Text color for the header text in the content boxes
+boxColorOne=white, % Background color of the content boxes
+textborder=roundedleft, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
+headerheight=0.1\textheight, % Height of the header
+headershape=roundedright, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+headerfont=\Large\bf\textsc, % Large, bold and sans serif font in the headers of content boxes
+%textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+linewidth=2pt % Width of the border lines around content boxes
+}
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+%
+{\includegraphics[height=5em]{MCBULogo.png}} % First university/lab logo on the left
+{\bf\textsc{Spatially Uniform Binding Rate Down-regulation}\vspace{0.5em}} % Poster title
+{\textsc{\{ Frederic Y.M. Wan, Brian Lee and Zhiying Zhou \} \hspace{12pt} University of California, Irvine, Mathematics}} % Author names and institution
+{\includegraphics[height=5em]{ucilogo2.png}} % Second university/lab logo on the right
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+\headerbox{Background}{name=objectives,column=0,row=0,}{
+
+Various mechanisms exist which down-regulate ectopic activities in Drosophila. Experimental
+data detailed in [3] showed that an increase in $6^\circ$C in the environment of a developing fly
+embryo leads to a doubled synthesis rate of Dpp, or Decapentaplegic, which in turn binds with
+Tkv, or Thickvein to form complexes which govern the development of fly wings. Despite this
+ectopic activity, a down-regulating mechanism must exist which enables the fly's development
+to remain relatively constant. The possibility that a regulatory mechanism for reacting to ectopic activities is robustness-based and
+spatially uniform was presented in a proof-of-concept paper, [1].
+
+\vspace{0.9em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
+}
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\headerbox{Problem}{name=introduction,column=1,row=0,bottomaligned=objectives}{
+
+Biological mechanisms exist
+which allow us to exert control over the concentration of signaling morphogen gradients. A
+program has been initiated at UCI to model some of them mathematically and examine
+their implications [1, 2]. Work has been done in [2] analytically for the case of low receptor
+occupancy. Using {\it{Mathematica}}, we study the behavior of a spatially uniform robust signaling negative feedback mechanism on the ligand-receptor binding rate in {\it{Drosophila}}, paying particular attention to the concentration of {\it{Dpp-Tkv}} complexes.
+
+}
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 1
+%----------------------------------------------------------------------------------------
+
+\headerbox{The Model}{name=results,column=2,span=2,row=0}{
+
+The most generic version of the model is detailed in [1]. Here we discuss a non-dimensionalized steady state version of the model, given by
+
+\begin{align*}
+a'' - \frac{\overline{h_0} a}{\overline{\alpha}_0(1 + c\overline{R}_b^n) + \zeta_h a} - g_La + \overline{v}_LH(-x) = 0,
+\end{align*}
+\begin{align*}
+b(x;\overline{R}_b) = \frac{\overline{h_0} a}{g_0(\overline{\alpha}_0(1 + c\overline{R}_b^n) + \zeta_h a)}
+\qquad r(x;\overline{R}_b) = \frac{\overline{\alpha_0}(1 + c\overline{R}_b^n)}{\overline{\alpha_0}(1 + c\overline{R}_b^n) + \zeta_h a}
+\end{align*}
+
+where
+
+\begin{align*}
+\overline{\alpha}_0 = 1 + \frac{f_0}{g_0}, \qquad \zeta_h = \frac{\overline{h}_0}{g_R}.
+\end{align*}
+Here $a, b,$ and $r$ denote, respectively, the concentrations of free morphogens, bound morphogens, and unoccupied receptors. {\bf{The behavior of the binding rate coefficient is encapsulated by}} $h_0.$
+}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\headerbox{References}{name=references,column=0,above=bottom}{
+
+\renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
+[1] Simonyan A. Wan F.Y.M. Kushner, T. A new approach to feedback for robust signaling
+gradients. Studies in Appl. Math., 133:18-51, 2014.\newline
+[2] F.Y.M. Wan. Spatially uniform and nonuniform feedback for robust signaling gradients.
+2016. \newline
+[3] S. Zhou. Diffusion creates the dpp morphogen gradient of the drosophila wing disc.
+Department of Development and Cell Biology, UC Irvine, 2011.}
+
+%----------------------------------------------------------------------------------------
+%	FUTURE RESEARCH
+%----------------------------------------------------------------------------------------
+
+\headerbox{Future Research}{name=futureresearch,column=1,span=2,aligned=references,above=bottom}{ % This block is as tall as the references block
+
+\begin{multicols}{2}
+Biological mechanisms exist
+which allow us to exert control over the concentration of signaling morphogen gradients. A
+program has been initiated at UCI to model some of them mathematically and examine
+their implications [1, 2].
+
+Through experimentation, we can control these mechanisms with the hopes that similar studies to this one can be tackled using adaptable iterative schemes, as the beginning of this project was to replicate previous work for general cases (for which results were done analytically but under some strong constraints which we removed in this analysis.) Understanding the ways in which developing organisms maintain morphogenesis given environmental factors will ultimately be insightful to the field of developmental biology as a whole.
+\end{multicols}
+}
+
+%----------------------------------------------------------------------------------------
+%	CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\headerbox{Contact Information}{name=contact,column=3,aligned=references,above=bottom}{ % This block is as tall as the references block
+
+\begin{description}\compresslist
+\item[Frederic Y.M. Wan:] fwan@math.uci.edu
+\item[Brian Lee] brianwl1@uci.edu
+\item[Zhiying Zhou] zhiyinz1@uci.edu
+\end{description}
+This research was funded through NSF UBM grant DMS-1129008
+}
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\headerbox{Iterative Scheme}{name=conclusion,column=2,span=2,row=0,below=results,above=references}{
+
+\begin{multicols}{2}
+
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=2cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse, fill=red!20, node distance=3cm, minimum height=2em]
+
+\begin{tikzpicture}[scale = 0.7, node distance = 2cm, auto]
+\node [block] (init) {Find $b$, without $\overline{R}_b.$};
+\node [cloud, left of=init] (Start) {Begin, no $\overline{R}_b.$};
+\node [cloud, right of=init] (Start2) {$b$ determines $\overline{R}_b.$};
+\node [block, below of=init] (init2) {Find $b(x;\overline{R}_b)$};
+\node [decision, below of=init2] (End) {End};
+\path [line] (init) -- (init2);
+\path [line] (init2) -- (End);
+\path [line, dashed] (Start) -- (init);
+\path [line, dashed] (Start2) -- (init);
+\path [line, dashed] (Start2) |- (init2);
+\end{tikzpicture}
+
+%------------------------------------------------
+
+The robustness index is given by
+$$\overline{R}_b = \frac{1}{\overline{b}(0)}\sqrt{\int_0^1[b(x;\overline{R}_b) - b(x)]^2\,\mathrm{d}x}.$$ So, initial data was used from a system without feedback, given some fixed level of ectopicity (which we can control thanks to work done by S. Zhou in A.D. Lander's lab at UCI) and then a value of robustness was passed into the system described on this poster.
+
+\end{multicols}
+}
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+
+\headerbox{Standardizing Parameters}{name=method,column=0,below=objectives,bottomaligned=conclusion}{ % This block's bottom aligns with the bottom of the conclusion block
+
+The following set of parameters is used in predecessor work
+$$X_\text{max} = 0.01 \text{ cm}, X_\text{min} = 0.001 \text{ cm},$$
+$$k_\text{deg} = 2 \times 10^{-4}, k_\text{on}R_0 = 0.01 \text{ sec/}\mu\text{m},$$
+$$k_R = 0.001/\text{sec.}, k_\text{off} = 10^{-6}/\text{sec.}, k_L = 0$$
+$$D = 10^{-7} \text{ cm}^2/\text{sec},$$ $$\overline{V}_L = 0.002 \mu\text{M/sec.}, \overline{V}_R = 0.04 \mu \text{M/sec.}$$ These are still present in the model, implicitly through non-dimensionalizations which made the equations easier to study and (by consequence) code.
+}
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 2
+%----------------------------------------------------------------------------------------
+
+\headerbox{Results}{name=results2,column=1,below=objectives,bottomaligned=conclusion}{ % This block's bottom aligns with the bottom of the conclusion block
+Given the standardizing parameters:
+\begin{center}
+\begin{tabular}{ c c c c c c }
+c & $\overline{R}_k$ & $\overline{R}_{k + 1}$ & $\overline{b}(0)$ \\
+1 & 0.01364 & 0.01364 & 0.05801 \\
+2 & 0.01486 & 0.01487 & 0.05801 \\
+4 & 0.01835 & 0.01831 & 0.05801 \\
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{ c c c  }
+c & $\overline{b}(0;\overline{R}_k)$ & $\overline{b}(0;\overline{R}_{k + 1})$ \\
+1 & 0.05517 & 0.05517 \\
+2 & 0.05486 & 0.05486 \\
+4 & 0.05405 & 0.05406 \\
+\end{tabular}
+\end{center}
+
+This quick convergence was attained in less than 10 iterations. The biological implication is also quite satisfying, as this is far below the acceptable threshold of robustness, 0.2, used in [2].
+}
+
+%----------------------------------------------------------------------------------------
+
+\end{poster}
+
+\end{document}
